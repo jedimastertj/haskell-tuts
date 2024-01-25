@@ -1,5 +1,14 @@
 module P11 where
 
+import Data.List
+
+boolToInt :: Bool -> Int
+boolToInt True = 1
+boolToInt False = 0
+
+mapBooleans :: (Bool -> a) -> [a]
+mapBooleans f = map f [True, False]
+
 -- constructors as functions
 wrapJust :: [a] -> [Maybe a]
 wrapJust xs = map Just xs
@@ -11,20 +20,21 @@ palindromes :: Int -> [String]
 palindromes n = filter isPalindrome (map show [1..n])
 
 getIndices :: String -> Char -> Int -> [Int]
-getIndices s c n 
-    | n >= length s = []
-    | (s !! n) == c = [n] ++ getIndices s c (n+1)
-    | otherwise = [-1] ++ getIndices s c (n+1)
+getIndices s c ind 
+    | ind >= length s = []
+    | (s !! ind) == c = [ind] ++ getIndices s c (ind+1)
+    | otherwise = getIndices s c (ind+1)
 
 getSubstring :: String -> Int -> Int -> String
-getSubstring s i n = take n (drop i s)
+getSubstring s ind len = take len (drop ind s)
 
 whatFollows :: String -> Char -> Int -> [String]
-whatFollows s c n = map f (filter isPositive (getIndices s c 0))
-    where f x = getSubstring s (x+1) n
-          isPositive x = x >= 0
+whatFollows s c len = map f (getIndices s c 0)
+    where f ind = getSubstring s (ind+1) len
 
 main = do
+    print (mapBooleans boolToInt)
     print (wrapJust [1,2,3,4,5])
     print (palindromes 150)
+    print (tails "echo")
     print (whatFollows "abracadabra" 'a' 2)
