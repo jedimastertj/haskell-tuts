@@ -30,6 +30,10 @@ startsWithZero :: [Int] -> Bool
 startsWithZero (0 : _) = True
 startsWithZero _ = False
 
+myMax :: [Int] -> Int
+myMax [] = -1
+myMax (x : xs) = max x (myMax xs)
+
 main = do
     -- (:) :: a -> [a] -> [a]
     -- : is a constructor for lists - returns a new linked list node
@@ -46,3 +50,5 @@ main = do
     print (myTail [1, 2, 3])
     print (sumFirstTwo [1, 2, 3])
     print (startsWithZero [])
+
+    print (myMax [1, 2, 3, 4, 5])
