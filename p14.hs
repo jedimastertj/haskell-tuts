@@ -17,7 +17,7 @@ main = do
     -- . and $ are operators used when working with higher order functions (help avoid parentheses)
 
     -- . is function composition, (f . g) x => f (g x) 
-    -- (.) :: (b -> c) -> (a -> b) -> a -> c
+    -- (.) :: (b -> c) -> (a -> b) -> (a -> c)
     print ((double . double . (+1)) 2)
     print (filter (not . null) [[1, 2, 3], [], [4]])
 

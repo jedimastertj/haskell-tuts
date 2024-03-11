@@ -2,7 +2,7 @@ module P15 where
 
 import Data.List
 
--- finds the earliest, longest substring containing only given characters
+-- finds the earliest substring containing only given characters
 findSubstring :: String -> String -> String
 findSubstring chars = takeWhile (\x -> elem x chars)
                       . dropWhile (\x -> not $ elem x chars) 
