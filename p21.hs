@@ -4,12 +4,12 @@ import qualified Data.Map as Rad
 
 -- key type of map has Ord typeclass, because maps are implemented as ordered binary search trees
 myMap :: Rad.Map Int String
-myMap = Rad.fromList [(1, "A"), (2, "B"), (3, "C")]
+myMap = Rad.fromList [(6, "D"), (2, "R"), (3, "A")]
 
 main = do
     -- foldr :: Foldable t => (a -> b -> b) -> b -> t a -> b
     -- maybe type is Foldable
-
+    
     print (foldr (+) 1 Nothing)
     print (foldr (+) 1 (Just 6))
 
@@ -20,3 +20,6 @@ main = do
     print (Rad.insert 7 "G" myMap)
     print (Rad.delete 2 myMap)
     print (myMap)
+
+    -- Map is a Foldable instance
+    print (foldr (++) "" myMap) 
