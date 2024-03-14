@@ -42,6 +42,7 @@ main = do
     print (rgb Red)
     print (getReportContent report1)
     print (getReportContent (setReportContent report1 "Bad performance!" "You're fired!"))
+    -- constructors are just functions
     print (typeOf Joker)
     print (typeOf Heart)
     print (typeOf King)

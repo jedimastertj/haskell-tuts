@@ -17,6 +17,7 @@ age = Justt 21
 data List a = Empty | Node a (List a) 
     deriving Show
 
+-- can pattern match on constructors
 ihead :: List a -> Maybe2 a
 ihead Empty = None
 ihead (Node x xs) = Justt x
