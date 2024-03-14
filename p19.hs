@@ -8,7 +8,7 @@ sumNumbers (x:xs) = x + sumNumbers xs
 sumNumbers2 :: [Int] -> Int
 sumNumbers2 nums = myFoldr (+) 0 nums
 
--- performs a right associative fold over a Foldable data structure
+-- performs a right associative fold over list (a Foldable data structure)
 myFoldr :: (a -> b -> b) -> b -> [a] -> b
 myFoldr f defaultVal [] = defaultVal
 myFoldr f defaultVal (x : xs) = f x (myFoldr f defaultVal xs)
