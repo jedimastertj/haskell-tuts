@@ -4,6 +4,7 @@ data Color = Black | White
 
 -- making user defined type (Color) a member of an existing class (Eq)
 -- a class instance block contains definitions for the functions in that class 
+-- deriving is a way to automatically generate class instance definitions (but may have unexpected behavior)
 
 instance Eq Color where
     Black == Black = True
